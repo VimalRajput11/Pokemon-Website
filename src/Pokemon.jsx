@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import "./index.css";
 import { PokemonCards } from "./PokemonCards";
 
+document.title="Pokemon"
 export const Pokemon = () => {
   const [pokemon, setPokemon] = useState([]);
   const [loading, setloading] = useState(true);
   const [search, setSearch] = useState("");
   const [error, seterror] = useState(null);
   const API = "https://pokeapi.co/api/v2/pokemon?limit=600";
+
+  
 
   const fetchPokemon = async () => {
     try {
@@ -40,9 +43,12 @@ export const Pokemon = () => {
   );
 
   if (loading) {
-    <div className="loader">
-        <h1>Loading...</h1>
-    </div>
+    return(
+      <>
+    <div className="loader"></div>
+    <h1>Loading...</h1>
+    </>
+    )
 
   }
 
